@@ -1,4 +1,5 @@
 import { useQuery, gql } from '@apollo/client'
+import { initializeApollo } from '../utils/apollo'
 
 const IntroQuery = gql`
 query IntroQuery {
@@ -23,4 +24,16 @@ export default function Home() {
       </h1>
     </div>
   )
+}
+
+export const getStaticProps = async () => {
+  const apolloClient = initializeApollo();
+  await apolloClient.query({
+    query: IntroQuery
+  });
+  return {
+    props: {
+      initialApolloState: apolloClient.cache.extract()
+    }
+  }
 }
