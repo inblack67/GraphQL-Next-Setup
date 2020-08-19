@@ -1,15 +1,6 @@
-import { makeSchema, queryType } from '@nexus/schema';
+import { makeSchema } from '@nexus/schema';
 import path from 'path';
-
-const Query = queryType({
-    definition(t) {
-        t.string('name', () => 'Jim Moriarty');
-    }
-})
-
-const types = {
-    Query
-}
+import * as types from './allTypes'
 
 export const schema = makeSchema({
     types,
