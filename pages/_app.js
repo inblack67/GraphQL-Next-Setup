@@ -1,5 +1,5 @@
 import { ApolloProvider } from '@apollo/client'
-import { useApollo } from '../utils/apollo'
+import { useApollo } from '../src/apollo'
 
 function MyApp({ Component, pageProps }) {
 

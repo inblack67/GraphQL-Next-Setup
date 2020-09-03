@@ -1,9 +1,10 @@
 import { useQuery, gql } from '@apollo/client'
-import { initializeApollo } from '../utils/apollo'
+import { initializeApollo } from '../src/apollo'
 
 const IntroQuery = gql`
 query IntroQuery {
-  name
+  name,
+  date
 }
 `;
 
@@ -15,13 +16,16 @@ export default function Home() {
     return <h1>Loading...</h1>
   }
 
-  const { name } = data;
+  const { name, date } = data;
 
   return (
     <div>
       <h1>
         {name}
       </h1>
+      <h3>
+        {date}
+      </h3>
     </div>
   )
 }
